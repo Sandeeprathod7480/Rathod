@@ -1,0 +1,33 @@
+package POM_DDF;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class POM2 
+{	
+@FindBy(xpath="//p[@class='oxd-userdropdown-name']")	private 	WebElement	UserName;
+	
+	public POM2(WebDriver  driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void VerifyUserName(String Verify)
+	{
+	
+		
+		String ActualResult=UserName.getText();
+		
+		if(Verify.equals(ActualResult))
+		{
+			System.out.println("Pass");
+		}
+		else
+		{
+			System.out.println("Fail");
+		}
+	}
+
+}
